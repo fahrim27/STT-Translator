@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		  .content-box {
+			    background-color: #fafafb;
+			    box-shadow: 1px 4px 8px rgba(0,0,0,.15);
+			    transition: all .3s ease-in-out;
+			    padding: 10px;
+			    padding-bottom: 0;
+			    margin-top: 40px;
+			    margin-bottom: 10px;
+			    height: auto;
+			}
+			.content-box .finbyz-icon {
+			    height: 100px;
+			    width: 100px;
+			    display: inline;
+			}
+	</style>
+</head>
+<body>
+
+  	<div class="container">
+        <h1 align="center">Translator Perform Result</h1>       
+	</div>
+	<div class="container">
+		<div class="row">	
+			<div class="col-md-4 text-center" style="opacity: 1;">
+			<div class="content-box">
+			<!-- <img alt="Real-time information" title="Real-time information" class="finbyz-icon img-responsive" src="https://finbyz.tech/svg/icon%20Real-time%20information.svg"> -->
+			<h2 class="content-box-title">Model Performed by Open-ai Whisper</h2><hr><br>
+			<p style="text-align: justify; font-size: 19px;" class="content-box-sub text-left text-start">{{results}}</p> <br><br>
+			{% if results %}
+			 <button type = "button" onclick = "CreateTextFile();">Download Text File</button>
+			{% endif %}
+			</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		function CreateTextFile() {
+	         var blob = new Blob([results], {
+	            type: "text/plain;charset=utf-8",
+	         });
+	         saveAs(blob, "download-translator-text.txt");
+	      }
+	</script>
+</body>
+</html>
